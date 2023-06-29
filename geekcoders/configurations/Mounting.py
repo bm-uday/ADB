@@ -34,4 +34,14 @@ dbutils.fs.unmount('/mnt/cleansed_datalake/')
 
 # COMMAND ----------
 
+dbutils.fs.mount( source = 'wasbs://mart@udaydatalakedevsink.blob.core.windows.net', 
+                 mount_point= '/mnt/mart_datalake/', extra_configs ={'fs.azure.sas.mart.udaydatalakedevsink.blob.core.windows.net':dbutils.secrets.get(scope="geekcoders-secret",key="sas1sink")})
+
+# COMMAND ----------
+
+# MAGIC %fs
+# MAGIC ls /mnt/mart_datalake/
+
+# COMMAND ----------
+
 
